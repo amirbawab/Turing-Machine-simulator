@@ -22,28 +22,52 @@ public class State{
 	// State name
 	private String name;
 	
+	/**
+	 * Constructor
+	 * @param status
+	 * */
 	protected State(int status) {
 		if(status < NORMAL || status > INITIAL_FINAL)
 			throw new TuringMachineException("Please enter a valid state status");
 		this.status = status;
 	}
 	
+	/**
+	 * Get status
+	 * @return status
+	 * */
 	public int getStatus() {
 		return status;
 	}
 	
+	/**
+	 * Checks if a state is final
+	 * @return boolean
+	 * */
 	public boolean isFinal(){
 		return status == INITIAL_FINAL || status == FINAL;
 	}
 
+	/**
+	 * Checks if a state is initial
+	 * @return boolean
+	 * */
 	public boolean isInitial(){
 		return status == INITIAL_FINAL || status == INITIAL;
 	}
 	
+	/**
+	 * Checks if a state is normal
+	 * @return boolean
+	 * */
 	public boolean isNormal(){
 		return status == NORMAL;
 	}
 	
+	/**
+	 * Get the name of a state
+	 * @return name
+	 * */
 	public String getName() {
 		return name;
 	}
@@ -56,18 +80,33 @@ public class State{
 		this.name = name;
 	}
 	
+	/**
+	 * Get the vertex that stores this state
+	 * @return vertex
+	 * */
 	protected Vertex<State, Transition> getVertex() {
 		return vertex;
 	}
-
+	
+	/**
+	 * Set the vertex that stores this state
+	 * @param vertex
+	 * */
 	protected void setVertex(Vertex<State, Transition> vertex) {
 		this.vertex = vertex;
 	}
 	
+	/**
+	 * Set the status of the state
+	 * @param status
+	 * */
 	protected void setStatus(int status){
 		this.status = status;
 	}
 	
+	/**
+	 * To string
+	 * */
 	public String toString(){
 		String output = String.format("(%s)", name);
 		

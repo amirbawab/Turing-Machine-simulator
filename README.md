@@ -73,7 +73,11 @@ The next lines are the transitions between states:<br>
 - White spaces in the above syntax are ignored.
 
 
-**Output of Addition.java:**
+**Function of addition machine:**
+
+f(1<sup>m</sup>01<sup>n</sup>) = 1<sup>m+n</sup>
+
+**Output of Addition.java :**
 
     Machine content:
     States:
@@ -93,7 +97,16 @@ The next lines are the transitions between states:<br>
     [□, 1, 1, 1, □, □]
 
 More examples: Multiplication.java, Concatenate.java
-    
+
+**Function of multiplication machine:**
+
+f(1<sup>m</sup>01<sup>n</sup>) = 1<sup>m.n</sup>
+
+
+**Function of addition_multiplication_2 machine (To obtain this file, execute Concatenate.java):**
+
+f(1<sup>m</sup>01<sup>n</sup>) = 1<sup>2(m+n)</sup>
+
 #####B) Use methods:
 
 **Example: AcceptReject.java**

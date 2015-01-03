@@ -71,3 +71,65 @@ The next lines are the transitions between states:<br>
 
 *Note:* 
 - White spaces in the above syntax are ignored.
+
+
+**Output of Addition.java:**
+
+    Machine content:
+    States:
+    →(q0) (q1) (q2) (q3) ((q4)) 
+    
+    Transitions:
+    [→(q0), →(q0) : (1 → 1, RIGHT)]
+    [→(q0), (q1) : (0 → 1, RIGHT)]
+    [(q1), (q1) : (1 → 1, RIGHT)]
+    [(q1), (q2) : (□ → □, LEFT)]
+    [(q2), (q3) : (1 → □, LEFT)]
+    [(q3), (q3) : (1 → 1, LEFT)]
+    [(q3), ((q4)) : (□ → □, RIGHT)]
+    
+    Tape content after processing '1011':
+        ↓             
+    [□, 1, 1, 1, □, □]
+
+    
+#####B) Use methods:
+
+**Example: AcceptReject.java**
+
+    public static void main(String[] args) {
+    
+    	// Create the machine that will only accept 1's
+		TuringMachine tm = new TuringMachine('q');
+		
+		// Create the states
+		State[] q = new State[3];
+		q[0] = tm.addState(State.INITIAL);
+		q[1] = tm.addState(State.FINAL);
+		q[2] = tm.addState(State.NORMAL);
+		
+		// Add transition
+		tm.addTransition(q[0], q[0], '1', '1', Transition.RIGHT);
+		tm.addTransition(q[0], q[1], Transition.BLANK, Transition.BLANK, Transition.LEFT);
+		tm.addTransition(q[0], q[2], '0', '0', Transition.RIGHT);
+		
+		// Process input 111
+		if(tm.process("111")) // Accept because only 1's
+			System.out.println("Accept 111");
+		else
+			System.out.println("Reject 111");
+		
+		// Process input 1011
+		if(tm.process("1011")) // Reject because there's a 0
+			System.out.println("Accept 1011");
+		else
+			System.out.println("Reject 1011");
+	}
+	
+**Output of AcceptReject.java:**
+
+    Accept 111
+    Reject 1011
+
+#####Library used:
+https://github.com/amirbawab/GraphADT

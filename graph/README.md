@@ -1,6 +1,8 @@
 GraphADT 2.0 (Adjacency list)
 ========
 
+*For the latest version of this library please visit: https://github.com/amirbawab/GraphADT*
+
 ####Methods to build your graph<br>
 
 #####Graph methods and complexities:

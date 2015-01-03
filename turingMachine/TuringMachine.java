@@ -48,7 +48,7 @@ public class TuringMachine {
 	public State addState(int status){
 		
 		// Only one initial state
-		if(initialState != null && status == State.INITIAL)
+		if(initialState != null && (status == State.INITIAL || status == State.INITIAL_FINAL))
 			throw new TuringMachineException("You cannot have more than one initial state");
 		
 		State state = new State(status);
@@ -56,8 +56,8 @@ public class TuringMachine {
 		state.setName(String.format("%c%d", vertexPrefix, vertex.getID()));
 		state.setVertex(vertex);
 		
-		// Assign the initial and/or final state
-		if(status == State.INITIAL || status == State.INITIAL_FINAL)
+		// Assign the initial state
+		if(state.isInitial())
 			initialState = state;
 		
 		// Return the added states

@@ -92,6 +92,7 @@ The next lines are the transitions between states:<br>
         ↓             
     [□, 1, 1, 1, □, □]
 
+More examples: Multiplication.java, Concatenate.java
     
 #####B) Use methods:
 

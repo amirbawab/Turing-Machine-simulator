@@ -28,6 +28,8 @@ Turing-Machine
 
 #####A) Use an input file:
 
+<img src="https://raw.githubusercontent.com/amirbawab/Turing-Machine/master/documentation/addition.jpg">
+
 ######Input 1 : addition
 
     prefix = q

@@ -436,7 +436,11 @@ public class TuringMachine {
 			pattern = Pattern.compile("final\\s*=\\s*(\\d+)");
 			matcher = pattern.matcher(readLine);
 			matcher.find();
-			statesStatus[Integer.parseInt(matcher.group(1))] = State.FINAL;
+			
+			if(statesStatus[Integer.parseInt(matcher.group(1))] == State.INITIAL)
+				statesStatus[Integer.parseInt(matcher.group(1))] = State.INITIAL_FINAL;
+			else
+				statesStatus[Integer.parseInt(matcher.group(1))] = State.FINAL;
 		}
 				
 		// Initialize all states

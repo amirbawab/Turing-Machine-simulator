@@ -1,4 +1,4 @@
-Turing-Machine
+Turing-Machine 1.0
 ==============
 
 ####Methods to build your Turing machine<br>
